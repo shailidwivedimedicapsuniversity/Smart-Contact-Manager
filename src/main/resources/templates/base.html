@@ -1,12 +1,46 @@
-<div class="parent-fragement" th:fragment="parent(content)">
-<h1>hello parent</h1>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, earum.</p>
-<!-- <p>value of x is <span th:text = "${x}"></span></p> -->
-<div th:replace = "${content}"></div>
-</div>
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:fragment="parent(content, title, script)"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-th-replace="${title}">base page</title>
+    <!-- including tailwind css -->
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <!-- including flowbite css  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- common headed -->
+     <ul class="p-4">
+      <li>
+        <a data-th-href="@{'/home'}">Home</a>
+      </li>
+    <li>
+        <a data-th-href="@{'/services'}">Services</a>
+      </li>
+    <li>
+        <a data-th-href="@{'/about'}">About</a>
+      </li>
+     </ul>
+    <!-- main content -->
+    <div class="p-4">
+    <section data-th-replace="${content}"></section>
+    </div>
+<!-- common footer -->
+    <!-- flow bite js -->
 
-<div th:fragment ="test(content)">
-    <h1>hello test </h1>
-    <div th:replace = "${content}"></div>
+    <footer class="p-4">
+      learn code with shaili
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <th:block data-th-replace="${script}"></th:block>
 
-</div>
+  </body>
+</html>

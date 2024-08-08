@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
+    // 3 routes , home about services
     // home
     @RequestMapping("/home")
     public String home(Model model){
-        System.out.println("home page*********");
+        System.out.println("home page");
         // passing dynamic data 
         // sending data to view
         model.addAttribute("fname", "shaili");

@@ -1,51 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
-    <title>Home</title>
-    <!-- including tailwind css  -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div
-      class="w-1/2 p-4 flex flex-col items-center space-y-3 mx-auto mt-4 bg-gray-200"
-    >
-      <h2 class="text-2xl font-bold">Hello , Welcome to my HomePage</h2>
-      <!-- this is dynamic data -->
-      <p class="text-xl text-gray-700">
-        firstname : <span data-th-text="${fname}"></span>
-      </p>
-      <p>lastname : <span data-th-text="${lname}"></span></p>
-      <p>youtube channel : <span data-th-text="${youtube}"></span></p>
-      <p>github repo : <span data-th-text="${github}"></span></p>
-      <p>linkdin url : <span data-th-text="${linkdin}"></span></p>
-
-      <a data-th-href="${github}">github</a>
-      <a data-th-href="${youtube}">youtube</a>
-      <a data-th-href="${linkdin}">linkdin</a>
-
-      <p class="text-gray-600">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dicta
-        quod omnis nemo? Harum possimus sit quas, cumque nisi animi ducimus
-        ipsam tempore at praesentium placeat fugit quasi similique amet.
-      </p>
-      <div>
-        <button
-          class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-gray-600 hover:text-white"
-        >
-          Click Here
-        </button>
-      </div>
+<html lang="en"
+th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+<head>
+<title>home Page</title>
+</head>
+<body>
+    <div id="content">
+        <h1>Welcome to Home Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum laudantium dolores facilis eum quidem beatae eveniet maiores, deserunt at sint ullam autem id veniam voluptates obcaecati quod. Perferendis, commodi!</p>
     </div>
-
-    <!-- flow bite content (cards) -->
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-  </body>
+    <script>
+        console.log("home page")
+    </script>
+    <script>
+        console.log("home script")
+    </script>
+</body>
 </html>
