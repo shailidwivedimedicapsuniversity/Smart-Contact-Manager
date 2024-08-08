@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-
+    // home
     @RequestMapping("/home")
     public String home(Model model){
         System.out.println("home page*********");
@@ -20,5 +20,21 @@ public class PageController {
 
         return "home";
     }
+
+    // about route
+    @RequestMapping("/about")
+    public String about(){
+        System.out.println("About the page ");
+        return "about";
+    }
+
+    // services
+    @RequestMapping("/services")
+    public String services(Model model){
+        model.addAttribute("isLogin",false);
+        System.out.println("service page loading");
+        return "services";
+    }
+
 
 }
