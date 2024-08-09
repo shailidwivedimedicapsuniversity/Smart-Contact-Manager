@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html
   lang="en"
+  class="dark"
   th:fragment="parent(content, title, script)"
   xmlns:th="http://www.thymeleaf.org"
 >
@@ -15,32 +16,21 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
       rel="stylesheet"
     />
+    <!-- including font-awesome for icons  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
+  <body class="dark:bg-gray-800  dark:text-white">
     <!-- common headed -->
-     <ul class="p-4">
-      <li>
-        <a data-th-href="@{'/home'}">Home</a>
-      </li>
-    <li>
-        <a data-th-href="@{'/services'}">Services</a>
-      </li>
-    <li>
-        <a data-th-href="@{'/about'}">About</a>
-      </li>
-     </ul>
+    <div data-th-replace="navbar :: navigation"></div>
     <!-- main content -->
-    <div class="p-4">
-    <section data-th-replace="${content}"></section>
+    <div class="p-4 h-screen w-full">
+      <section data-th-replace="${content}"></section>
     </div>
-<!-- common footer -->
+    <!-- common footer -->
     <!-- flow bite js -->
 
-    <footer class="p-4">
-      learn code with shaili
-    </footer>
+    <footer class="p-4">learn code with shaili</footer>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
     <th:block data-th-replace="${script}"></th:block>
-
   </body>
 </html>
