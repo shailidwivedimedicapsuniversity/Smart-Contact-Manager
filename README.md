@@ -1,1 +1,2 @@
 hello dear friends, i am creating smart contact manager using springboot , html , css and js.
+npx tailwindcss -i ./src/main/resources/static/css/input.css -o ./src/main/resources/static/css/output.css --watch

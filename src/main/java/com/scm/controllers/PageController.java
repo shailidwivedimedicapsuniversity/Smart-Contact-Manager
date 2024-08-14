@@ -84,21 +84,21 @@ public class PageController {
 
         // userservice
         // created user from userform and put all data of userform in user
-        // User user = User.builder()
-        // .name(userForm.getName())
-        // .email(userForm.getEmail())
-        // .about(userForm.getAbout())
-        // .phoneNum(userForm.getPhoneNum())
-        // .profileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg")
-        // .build();
+        User user = User.builder()
+        .name(userForm.getName())
+        .email(userForm.getEmail())
+        .about(userForm.getAbout())
+        .phoneNum(userForm.getPhoneNum())
+        .profileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg")
+        .build();
 
-        User user = new User();
-        user.setName(userForm.getName());
-        user.setEmail(userForm.getEmail());
-        user.setPassword(userForm.getPassword());
-        user.setAbout(userForm.getAbout());
-        user.setPhoneNum(userForm.getPhoneNum());
-        user.setProfileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg");
+        // User user = new User();
+        // user.setName(userForm.getName());
+        // user.setEmail(userForm.getEmail());
+        // user.setPassword(userForm.getPassword());
+        // user.setAbout(userForm.getAbout());
+        // user.setPhoneNum(userForm.getPhoneNum());
+        // user.setProfileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg");
         User savedUser = userService.saveUser(user);
         // message : sucess
         System.out.println("sucessfully created account");
