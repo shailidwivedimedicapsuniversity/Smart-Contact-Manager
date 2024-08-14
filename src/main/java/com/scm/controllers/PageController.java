@@ -19,7 +19,8 @@ public class PageController {
     // home
     @Autowired
     private UserService userService;
-    private User saveUser;
+
+    // private User saveUser;
 
     @RequestMapping("/home")
     public String home(Model model) {
@@ -69,7 +70,7 @@ public class PageController {
         // userForm.setName("Shaili Dwivedi");
         // userForm.setAbout("hii i am shaili");
         model.addAttribute("userForm", userForm);
-        return new String("register");
+        return "register";
     }
 
     // processing register
@@ -77,7 +78,7 @@ public class PageController {
     public String processRegister(@ModelAttribute UserForm userForm) {
         System.out.println("working fine");
         // fetch form data
-        System.out.println("userform");
+        System.out.println(userForm);
         // send to model
         // Todo : validate user form data
         // save to database
@@ -91,6 +92,7 @@ public class PageController {
         .phoneNum(userForm.getPhoneNum())
         .profileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg")
         .build();
+        
 
         // User user = new User();
         // user.setName(userForm.getName());
