@@ -13,6 +13,8 @@ import com.scm.entities.User;
 import com.scm.forms.UserForm;
 import com.scm.services.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class PageController {
     // 3 routes , home about services
@@ -75,7 +77,7 @@ public class PageController {
 
     // processing register
     @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm) {
+    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session) {
         System.out.println("working fine");
         // fetch form data
         System.out.println(userForm);
@@ -85,25 +87,19 @@ public class PageController {
 
         // userservice
         // created user from userform and put all data of userform in user
-        User user = User.builder()
-        .name(userForm.getName())
-        .email(userForm.getEmail())
-        .about(userForm.getAbout())
-        .phoneNum(userForm.getPhoneNum())
-        .profileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg")
-        .build();
-        
+    
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhoneNum(userForm.getPhoneNum());
+        user.setEnabled(false);
+        user.setProfileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg");
 
-        // User user = new User();
-        // user.setName(userForm.getName());
-        // user.setEmail(userForm.getEmail());
-        // user.setPassword(userForm.getPassword());
-        // user.setAbout(userForm.getAbout());
-        // user.setPhoneNum(userForm.getPhoneNum());
-        // user.setProfileLink("https://shailidwivedipersonalportfolio.netlify.app/img/profile.jpg");
         User savedUser = userService.saveUser(user);
         // message : sucess
-        System.out.println("sucessfully created account");
+        session.setAttribute("message","sucessfully created account" );
         // redirect to login page
         return "redirect:/register";
     }
