@@ -29,7 +29,8 @@
             </p>
             <!-- starting our form  -->
 
-            <form data-th-action="@{'/do-register'}" method="post" class="mt-5 max-w-sm mx-auto" data-th-object="${userForm}">
+            <form data-th-action="@{'/do-register'}" method="post" class="mt-5 max-w-sm mx-auto" data-th-object="${userForm}" novalidate>
+              <!-- name field -->
               <div class="mb-5">
                 <label
                   for="name"
@@ -44,7 +45,15 @@
                   placeholder="John Spark"
                   required
                 />
+                <p 
+                data-th-if="${#fields.hasErrors('name')}"
+                data-th-errors="*{name}"
+                class="text-red-600 py-2 px-1">
+                username is required
+                </p>
               </div>
+
+              <!-- email field -->
               <div class="mb-5">
                 <label
                   for="email"
@@ -59,8 +68,14 @@
                   placeholder="name@gmail.com"
                   required
                 />
+                <p 
+                data-th-if="${#fields.hasErrors('email')}"
+                data-th-errors="*{email}"
+                class="text-red-600 py-2 px-1">
+                email is required
+                </p>
               </div>
-             
+             <!-- phone number -->
               <div class="mb-5">
                 <label
                   for="Number"
@@ -75,6 +90,12 @@
                   placeholder="1234567890"
                   required
                 />
+                <p 
+                data-th-if="${#fields.hasErrors('phoneNum')}"
+                data-th-errors="*{phoneNum}"
+                class="text-red-600 py-2 px-1">
+                username is required
+                </p>
               </div>
               <div class="mb-5">
                 <label
@@ -91,6 +112,12 @@
                   placeholder="Enter Password"
                   required
                 />
+                <p 
+                data-th-if="${#fields.hasErrors('password')}"
+                data-th-errors="*{password}"
+                class="text-red-600 py-2 px-1">
+                password is required
+                </p>
               </div>
               <div class="mb-3">
                 <label
@@ -105,6 +132,12 @@
                   class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Write something about yourself here..."
                 ></textarea>
+                <p 
+                data-th-if="${#fields.hasErrors('about')}"
+                data-th-errors="*{about}"
+                class="text-red-600 py-2 px-1">
+                about is required
+                </p>
               </div>
 
               <div class="flex items-start mb-5">

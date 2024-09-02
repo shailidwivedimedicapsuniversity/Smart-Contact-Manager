@@ -1,5 +1,5 @@
 package com.scm.helpers;
 
 public enum MessageType {
-    red, green , blue
+    red, green , blue, yellow
 }
